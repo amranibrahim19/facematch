@@ -396,3 +396,4 @@
 2024-09-10 14:33:24,289 - INFO - Document Number: A60839825
 2024-09-10 14:33:24,289 - INFO - Datetime: 2024-09-10 14:33:23
 2024-09-10 14:33:24,289 - INFO - 192.168.0.30 - - [10/Sep/2024 14:33:24] "POST /api/compare_faces HTTP/1.1" 200 -
+2024-09-10 15:06:06,108 - INFO -  * Detected change in 'C:\\Users\\Febryan\\Documents\\Code\\test-project\\python_facematch\\script.py', reloading
