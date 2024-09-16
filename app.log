@@ -771,3 +771,53 @@
 2024-09-11 17:57:56,094 - INFO - Document Number: A60839825
 2024-09-11 17:57:56,095 - INFO - Datetime: 2024-09-11 17:57:54
 2024-09-11 17:57:56,096 - INFO - 192.168.0.102 - - [11/Sep/2024 17:57:56] "POST /api/compare_faces HTTP/1.1" 200 -
+2024-09-14 01:35:01,519 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.8:8080
+2024-09-14 01:35:01,519 - INFO - [33mPress CTRL+C to quit[0m
+2024-09-14 01:35:01,520 - INFO -  * Restarting with stat
+2024-09-14 01:35:02,802 - WARNING -  * Debugger is active!
+2024-09-14 01:35:02,807 - INFO -  * Debugger PIN: 146-095-974
+2024-09-14 01:36:15,151 - DEBUG - tag: ImageLength (257) - type: long (4) - value: b'\xd0\x02\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Make (271) - type: string (2) Tag Location: 34 - Data Location: 170 - value: b'OPPO\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Orientation (274) - type: short (3) - value: b'\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: DateTime (306) - type: string (2) Tag Location: 58 - Data Location: 202 - value: b'2024:09:14 01:11:40\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 70 - Data Location: 222 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 82 - Data Location: 230 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ImageWidth (256) - type: long (4) - value: b'\xe0\x01\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Model (272) - type: string (2) Tag Location: 106 - Data Location: 238 - value: b'CPH2483\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Software (305) - type: string (2) Tag Location: 118 - Data Location: 270 - value: b'MediaTek Camera Application\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ImageDescription (270) - type: string (2) Tag Location: 130 - Data Location: 302 - value: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: YCbCrPositioning (531) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'N\x01\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ImageLength (257) - type: long (4) - value: b'\xd0\x02\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Make (271) - type: string (2) Tag Location: 34 - Data Location: 170 - value: b'OPPO\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Orientation (274) - type: short (3) - value: b'\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: DateTime (306) - type: string (2) Tag Location: 58 - Data Location: 202 - value: b'2024:09:14 01:11:40\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 70 - Data Location: 222 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 82 - Data Location: 230 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: ImageWidth (256) - type: long (4) - value: b'\xe0\x01\x00\x00'
+2024-09-14 01:36:15,151 - DEBUG - tag: Model (272) - type: string (2) Tag Location: 106 - Data Location: 238 - value: b'CPH2483\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: Software (305) - type: string (2) Tag Location: 118 - Data Location: 270 - value: b'MediaTek Camera Application\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ImageDescription (270) - type: string (2) Tag Location: 130 - Data Location: 302 - value: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: YCbCrPositioning (531) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'N\x01\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ImageLength (257) - type: long (4) - value: b'\xd0\x02\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: Make (271) - type: string (2) Tag Location: 34 - Data Location: 170 - value: b'OPPO\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: Orientation (274) - type: short (3) - value: b'\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: DateTime (306) - type: string (2) Tag Location: 58 - Data Location: 202 - value: b'2024:09:14 01:11:40\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: YResolution (283) - type: rational (5) Tag Location: 70 - Data Location: 222 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: XResolution (282) - type: rational (5) Tag Location: 82 - Data Location: 230 - value: b'H\x00\x00\x00\x01\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ImageWidth (256) - type: long (4) - value: b'\xe0\x01\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: Model (272) - type: string (2) Tag Location: 106 - Data Location: 238 - value: b'CPH2483\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: Software (305) - type: string (2) Tag Location: 118 - Data Location: 270 - value: b'MediaTek Camera Application\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ImageDescription (270) - type: string (2) Tag Location: 130 - Data Location: 302 - value: b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: YCbCrPositioning (531) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ExifIFD (34665) - type: long (4) - value: b'N\x01\x00\x00'
+2024-09-14 01:36:15,152 - DEBUG - tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+2024-09-14 01:36:16,251 - INFO - Document Number: A60839825
+2024-09-14 01:36:16,251 - INFO - Datetime: 2024-09-14 01:36:14
+2024-09-14 01:36:16,251 - INFO - 192.168.0.7 - - [14/Sep/2024 01:36:16] "POST /api/compare_faces HTTP/1.1" 200 -
