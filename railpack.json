@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "provider": "python",
+  "buildAptPackages": [
+    "cmake",
+    "build-essential",
+    "libopenblas-dev",
+    "liblapack-dev"
+  ],
+  "deploy": {
+    "startCommand": "gunicorn --bind 0.0.0.0:${PORT:-8080} script:app"
+  }
+}

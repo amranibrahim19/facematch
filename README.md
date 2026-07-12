@@ -23,7 +23,15 @@ source venv/bin/activate
 python script.py
 ```
 
-Server listens on `http://0.0.0.0:8080`.
+Server listens on `http://0.0.0.0:8080` (or `$PORT` if set). Docs UI: `/`.
+
+## Deploy (Railway)
+
+Railpack needs an explicit start command because the app lives in `script.py` (not `app.py`/`main.py`). This repo includes:
+
+- `Procfile` / `railpack.json` → `gunicorn --bind 0.0.0.0:$PORT script:app`
+- `gunicorn` in `requirements.txt`
+- build packages for compiling `dlib` (`cmake`, etc.)
 
 ## API
 
