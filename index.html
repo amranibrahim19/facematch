@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Facematch</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --ink: #1c1917;
+      --muted: #57534e;
+      --panel: #fffdf8;
+      --line: #e7e5e4;
+      --code: #f5f5f4;
+      --accent: #0f766e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #ddeae7 0%, transparent 40%),
+        linear-gradient(180deg, #efeae2 0%, var(--bg) 45%, #ebe7df 100%);
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    #readme {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 1.75rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    #readme h1,
+    #readme h2,
+    #readme h3 {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    #readme h1 { margin-top: 0; font-size: 2rem; color: var(--accent); }
+    #readme h2 {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 1.35rem;
+    }
+    #readme h3 { font-size: 1.1rem; }
+
+    #readme p, #readme li { color: var(--ink); }
+    #readme a { color: var(--accent); }
+
+    #readme code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: var(--code);
+      padding: 0.1em 0.35em;
+    }
+
+    #readme pre {
+      overflow-x: auto;
+      background: #1c1917;
+      color: #f5f5f4;
+      padding: 1rem;
+      border-radius: 2px;
+    }
+
+    #readme pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    #status {
+      color: var(--muted);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p id="status">Loading README…</p>
+    <article id="readme" hidden></article>
+  </main>
+  <script>
+    async function loadReadme() {
+      const status = document.getElementById('status');
+      const readme = document.getElementById('readme');
+
+      try {
+        const response = await fetch('README.md', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const markdown = await response.text();
+        readme.innerHTML = marked.parse(markdown);
+        readme.hidden = false;
+        status.hidden = true;
+      } catch (error) {
+        status.textContent = `Could not load README.md: ${error.message}`;
+      }
+    }
+
+    loadReadme();
+  </script>
+</body>
+</html>

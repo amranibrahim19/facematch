@@ -1,11 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import face_recognition
 from PIL import Image, UnidentifiedImageError
 from io import BytesIO
+from pathlib import Path
 import numpy as np
 import base64
 import logging
+
+BASE_DIR = Path(__file__).resolve().parent
 
 try:
     from pillow_heif import register_heif_opener
@@ -77,6 +80,14 @@ def _pick_image_field(data, *keys):
         if value:
             return value
     return None
+
+@app.route('/')
+def index():
+    return send_from_directory(BASE_DIR, 'index.html')
+
+@app.route('/README.md')
+def readme():
+    return send_from_directory(BASE_DIR, 'README.md', mimetype='text/markdown')
 
 @app.route('/api/compare_faces', methods=['POST'])
 def compare_faces():
