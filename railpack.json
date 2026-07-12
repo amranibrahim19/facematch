@@ -1,13 +1,20 @@
 {
   "$schema": "https://schema.railpack.com",
   "provider": "python",
-  "buildAptPackages": [
-    "cmake",
-    "build-essential",
-    "libopenblas-dev",
-    "liblapack-dev"
-  ],
+  "steps": {
+    "install": {
+      "commands": [
+        "...",
+        "pip install --no-deps face-recognition==1.3.0"
+      ]
+    }
+  },
   "deploy": {
+    "aptPackages": [
+      "libopenblas0",
+      "libgomp1",
+      "liblapack3"
+    ],
     "startCommand": "gunicorn --bind 0.0.0.0:${PORT:-8080} script:app"
   }
 }

@@ -5,12 +5,13 @@ Flask API that compares two face images and returns a similarity score (`selfie_
 ## Setup
 
 ```bash
-# macOS: cmake is required to build dlib
+# macOS: cmake is required to build dlib (Linux/Railway uses prebuilt dlib-bin)
 brew install cmake
 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+pip install --no-deps face-recognition==1.3.0
 
 # logging file used by the app
 touch app.log
@@ -31,7 +32,9 @@ Railpack needs an explicit start command because the app lives in `script.py` (n
 
 - `Procfile` / `railpack.json` → `gunicorn --bind 0.0.0.0:$PORT script:app`
 - `gunicorn` in `requirements.txt`
-- build packages for compiling `dlib` (`cmake`, etc.)
+- Linux uses prebuilt `dlib-bin` wheels (avoids compiling dlib for 10+ minutes)
+- `face-recognition` is installed with `--no-deps` so pip does not pull source `dlib`
+- Runtime apt packages: `libopenblas0`, `libgomp1`, `liblapack3` (required by dlib)
 
 ## API
 
