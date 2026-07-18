@@ -14,6 +14,8 @@
       --line: #e7e5e4;
       --code: #f5f5f4;
       --accent: #0f766e;
+      --accent-ink: #f0fdfa;
+      --danger: #b91c1c;
     }
 
     * { box-sizing: border-box; }
@@ -34,10 +36,142 @@
       padding: 2.5rem 1.25rem 4rem;
     }
 
-    #readme {
+    .brand {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin: 0 0 0.35rem;
+    }
+
+    .lede {
+      margin: 0 0 1.75rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .panel {
       background: var(--panel);
       border: 1px solid var(--line);
-      padding: 1.75rem 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .panel h2 {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+
+    .pair {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .pair { grid-template-columns: 1fr 1fr; }
+    }
+
+    .field label {
+      display: block;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .modes {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .modes button {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.8rem;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 0.35rem 0.7rem;
+      cursor: pointer;
+    }
+
+    .modes button[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .input-pane[hidden] { display: none; }
+
+    input[type="url"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      font: inherit;
+      font-size: 0.95rem;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 0.55rem 0.65rem;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 5.5rem;
+      resize: vertical;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+    }
+
+    input[type="file"] {
+      padding: 0.45rem;
+    }
+
+    .hint {
+      margin: 0.4rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+    }
+
+    .actions {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .actions button[type="submit"] {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-weight: 600;
+      border: none;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+    }
+
+    .actions button[type="submit"]:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    #result {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+      margin: 0;
+      min-height: 1.4em;
+    }
+
+    #result.ok { color: var(--accent); font-weight: 600; font-size: 1.15rem; }
+    #result.err { color: var(--danger); }
+
+    #readme {
       line-height: 1.6;
     }
 
@@ -49,16 +183,15 @@
       line-height: 1.25;
     }
 
-    #readme h1 { margin-top: 0; font-size: 2rem; color: var(--accent); }
+    #readme h1 { margin-top: 0; font-size: 1.75rem; color: var(--accent); }
     #readme h2 {
       margin-top: 2rem;
       padding-top: 1rem;
       border-top: 1px solid var(--line);
-      font-size: 1.35rem;
+      font-size: 1.25rem;
     }
-    #readme h3 { font-size: 1.1rem; }
+    #readme h3 { font-size: 1.05rem; }
 
-    #readme p, #readme li { color: var(--ink); }
     #readme a { color: var(--accent); }
 
     #readme code {
@@ -73,13 +206,31 @@
       background: #1c1917;
       color: #f5f5f4;
       padding: 1rem;
-      border-radius: 2px;
     }
 
     #readme pre code {
       background: transparent;
       color: inherit;
       padding: 0;
+    }
+
+    #readme table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    #readme th,
+    #readme td {
+      border: 1px solid var(--line);
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    #readme th {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background: var(--code);
     }
 
     #status {
@@ -91,10 +242,159 @@
 </head>
 <body>
   <main>
-    <p id="status">Loading README…</p>
-    <article id="readme" hidden></article>
+    <h1 class="brand">Python Facematch</h1>
+    <p class="lede">
+      Compare two faces via URL, base64, or file upload. Returns a similarity score.
+    </p>
+
+    <section class="panel" aria-labelledby="try-title">
+      <h2 id="try-title">Try it</h2>
+      <form id="compare-form">
+        <div class="pair">
+          <div class="field" data-side="source">
+            <label>Source (selfie)</label>
+            <div class="modes" role="group" aria-label="Source input mode">
+              <button type="button" data-mode="url" aria-pressed="true">URL</button>
+              <button type="button" data-mode="base64" aria-pressed="false">Base64</button>
+              <button type="button" data-mode="file" aria-pressed="false">File</button>
+            </div>
+            <div class="input-pane" data-pane="url">
+              <input type="url" name="source_url_text" placeholder="https://example.com/selfie.jpg" />
+            </div>
+            <div class="input-pane" data-pane="base64" hidden>
+              <textarea name="source_base64" placeholder="Raw base64 or data:image/...;base64,..."></textarea>
+            </div>
+            <div class="input-pane" data-pane="file" hidden>
+              <input type="file" name="source_file" accept="image/*,.heic,.heif" />
+            </div>
+            <p class="hint">JPEG, PNG, WEBP, HEIC, …</p>
+          </div>
+
+          <div class="field" data-side="target">
+            <label>Target (document)</label>
+            <div class="modes" role="group" aria-label="Target input mode">
+              <button type="button" data-mode="url" aria-pressed="true">URL</button>
+              <button type="button" data-mode="base64" aria-pressed="false">Base64</button>
+              <button type="button" data-mode="file" aria-pressed="false">File</button>
+            </div>
+            <div class="input-pane" data-pane="url">
+              <input type="url" name="target_url_text" placeholder="https://example.com/id.png" />
+            </div>
+            <div class="input-pane" data-pane="base64" hidden>
+              <textarea name="target_base64" placeholder="Raw base64 or data:image/...;base64,..."></textarea>
+            </div>
+            <div class="input-pane" data-pane="file" hidden>
+              <input type="file" name="target_file" accept="image/*,.heic,.heif" />
+            </div>
+            <p class="hint">Same formats; mix modes freely</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Compare faces</button>
+          <p id="result" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <p id="status">Loading README…</p>
+      <article id="readme" hidden></article>
+    </section>
   </main>
+
   <script>
+    function modeOf(field) {
+      const pressed = field.querySelector('.modes button[aria-pressed="true"]');
+      return pressed ? pressed.dataset.mode : 'url';
+    }
+
+    function setMode(field, mode) {
+      field.querySelectorAll('.modes button').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+      });
+      field.querySelectorAll('.input-pane').forEach((pane) => {
+        pane.hidden = pane.dataset.pane !== mode;
+      });
+    }
+
+    document.querySelectorAll('.field').forEach((field) => {
+      field.querySelectorAll('.modes button').forEach((button) => {
+        button.addEventListener('click', () => setMode(field, button.dataset.mode));
+      });
+    });
+
+    async function valueFor(field, side) {
+      const mode = modeOf(field);
+      if (mode === 'url') {
+        const value = field.querySelector('input[type="url"]').value.trim();
+        if (!value) throw new Error(`${side} URL is required`);
+        return { kind: 'text', value };
+      }
+      if (mode === 'base64') {
+        const value = field.querySelector('textarea').value.trim();
+        if (!value) throw new Error(`${side} base64 is required`);
+        return { kind: 'text', value };
+      }
+      const fileInput = field.querySelector('input[type="file"]');
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) throw new Error(`${side} file is required`);
+      return { kind: 'file', file };
+    }
+
+    const form = document.getElementById('compare-form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      result.className = '';
+      result.textContent = 'Comparing…';
+
+      const submit = form.querySelector('button[type="submit"]');
+      submit.disabled = true;
+
+      try {
+        const sourceField = form.querySelector('[data-side="source"]');
+        const targetField = form.querySelector('[data-side="target"]');
+        const source = await valueFor(sourceField, 'Source');
+        const target = await valueFor(targetField, 'Target');
+
+        let response;
+        if (source.kind === 'file' || target.kind === 'file') {
+          const body = new FormData();
+          if (source.kind === 'file') body.append('source_url', source.file, source.file.name);
+          else body.append('source_url', source.value);
+          if (target.kind === 'file') body.append('target_url', target.file, target.file.name);
+          else body.append('target_url', target.value);
+
+          response = await fetch('/api/compare_faces', { method: 'POST', body });
+        } else {
+          response = await fetch('/api/compare_faces', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source_url: source.value,
+              target_url: target.value,
+            }),
+          });
+        }
+
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(payload.error || `HTTP ${response.status}`);
+        }
+
+        const score = payload.selfie_image_score;
+        result.className = 'ok';
+        result.textContent = `Score: ${Number(score).toFixed(1)}`;
+      } catch (error) {
+        result.className = 'err';
+        result.textContent = error.message || 'Comparison failed';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
     async function loadReadme() {
       const status = document.getElementById('status');
       const readme = document.getElementById('readme');
